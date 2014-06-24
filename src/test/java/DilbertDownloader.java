@@ -18,7 +18,7 @@ public class DilbertDownloader {
     static WebDriver driver;
 
     @Test
-    public void Dilbert() throws Exception {
+    public void Dilbert3() throws Exception {
         int max = 13147;
         driver = new FirefoxDriver();
         FileDownloader downloadTestFile = new FileDownloader(driver);
