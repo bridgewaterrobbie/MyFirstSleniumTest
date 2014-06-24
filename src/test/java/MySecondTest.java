@@ -21,6 +21,12 @@ public class MySecondTest {
         driver.get(home);
     }
 
+    @AfterClass
+    public static void teardown() {
+        driver.close();
+        driver.quit();
+    }
+
     @Test
     public void test1() {
         //driver.get(home);
@@ -50,11 +56,5 @@ public class MySecondTest {
         WebElement e = driver.findElement(By.xpath("//li"));
         String a = e.getAttribute(atName);
         assertEquals("Matches", a, result);
-    }
-
-    @AfterClass
-    public static void teardown() {
-        driver.close();
-        driver.quit();
     }
 }

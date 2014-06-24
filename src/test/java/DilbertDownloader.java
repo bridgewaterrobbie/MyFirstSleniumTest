@@ -1,4 +1,3 @@
-
 /**
  * Created by Robbie Bridgewater on 6/17/2014.
  */
@@ -18,7 +17,7 @@ public class DilbertDownloader {
     static WebDriver driver;
 
     @Test
-    public void Dilbert3() throws Exception {
+    public void Dilbert33() throws Exception {
         int max = 13147;
         driver = new FirefoxDriver();
         FileDownloader downloadTestFile = new FileDownloader(driver);

@@ -26,6 +26,12 @@ public class MyThirdTest {
         driver.get(home);
     }
 
+    @AfterClass
+    public static void teardown() {
+        driver.close();
+        driver.quit();
+    }
+
     @Before
     public void refresh() {
         // driver.get(home);
@@ -83,7 +89,6 @@ public class MyThirdTest {
         assertEquals("Bwa! Ha! Ha!", text1.getText());
     }
 
-
     @Test
     public void adraw() {
         WebElement drawBox = driver.findElement(By.cssSelector("html body div canvas#canvas"));
@@ -107,13 +112,6 @@ public class MyThirdTest {
         new Actions(driver).click(item).keyDown(Keys.CONTROL).sendKeys("s").keyUp(Keys.CONTROL).perform();
         String downloadedFileAbsoluteLocation = downloadTestFile.downloadImage(item, "test2/", "1");
         System.out.println(downloadedFileAbsoluteLocation);
-    }
-
-
-    @AfterClass
-    public static void teardown() {
-        driver.close();
-        driver.quit();
     }
 
 
