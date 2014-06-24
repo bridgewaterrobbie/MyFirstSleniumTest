@@ -40,7 +40,7 @@ public class DilbertDownloader {
     }
 
     @Test
-    public void Garfield1() throws Exception {
+    public void Garfield11() throws Exception {
         int max = 13147;
         driver = new HtmlUnitDriver();
         FileDownloader downloadTestFile = new FileDownloader(driver);
