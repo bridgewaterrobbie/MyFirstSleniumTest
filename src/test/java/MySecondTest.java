@@ -4,7 +4,7 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.safari.SafariDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 import static org.junit.Assert.assertEquals;
 
@@ -17,7 +17,7 @@ public class MySecondTest {
 
     @BeforeClass
     public static void createDriver() {
-        driver = new SafariDriver();
+        driver = new FirefoxDriver();
         driver.get(home);
     }
 
@@ -32,6 +32,7 @@ public class MySecondTest {
         //driver.get(home);
         WebElement e = driver.findElement(By.xpath("//*[@id='p31']"));
         assertEquals("Matches", e.getAttribute("name"), "pName31");
+
     }
 
     @Test
@@ -56,5 +57,11 @@ public class MySecondTest {
         WebElement e = driver.findElement(By.xpath("//li"));
         String a = e.getAttribute(atName);
         assertEquals("Matches", a, result);
+    }
+
+    @Test
+    public void intendedToFail() {
+        assertEquals("ThisShouldFail", 0, 1);
+
     }
 }

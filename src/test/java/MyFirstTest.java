@@ -10,8 +10,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.not;
-import static org.junit.Assert.assertThat;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 //import static org.hamcrest.core.Is.is;
 //import static org.hamcrest.core.IsNot.not;
@@ -75,4 +74,10 @@ public class MyFirstTest {
         assertThat("the answer", is(not("an answer")));
 
     }
+
+    @Test
+    public void intendedToFail() {
+        assertEquals("ThisShouldFail", 0, 1);
+    }
+
 }
