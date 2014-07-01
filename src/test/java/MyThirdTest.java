@@ -103,16 +103,5 @@ public class MyThirdTest {
         new Actions(driver).release().perform();
     }
 
-    @Test
-    public void download() throws Exception {
-        FileDownloader downloadTestFile = new FileDownloader(driver);
-        String path = "http://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Tunnel_View%2C_Yosemite_Valley%2C_Yosemite_NP_-_Diliff.jpg/284px-Tunnel_View%2C_Yosemite_Valley%2C_Yosemite_NP_-_Diliff.jpg";
-        driver.get(path);
-        WebElement item = driver.findElement(By.cssSelector("html body img.decoded"));
-        new Actions(driver).click(item).keyDown(Keys.CONTROL).sendKeys("s").keyUp(Keys.CONTROL).perform();
-        String downloadedFileAbsoluteLocation = downloadTestFile.downloadImage(item, "test2/", "1");
-        System.out.println(downloadedFileAbsoluteLocation);
-    }
-
 
 }

@@ -5,6 +5,7 @@
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.junit.runner.JUnitCore;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
@@ -17,6 +18,12 @@ import static org.junit.Assert.*;
 
 public class MyFirstTest {
     static WebDriver driver;
+
+    @Test
+    public static void intendedToFail() {
+        assertEquals("ThisShouldFail", 0, 1);
+    }
+
 
     @BeforeClass
     public static void createDriver() {
@@ -31,8 +38,16 @@ public class MyFirstTest {
         driver.quit();
     }
 
+    public static void main(String[] args) {
+        JUnitCore junit = new JUnitCore();
+        //intendedToFail();
+        // HomePageGoAndCheckTitle();
+        org.junit.runner.JUnitCore.main("MyThirdTest");
+
+
+    }
     @Test
-    public void HomePageGoAndCheckTitle() {
+    public static void HomePageGoAndCheckTitle() {
         driver.navigate().to("http://compendiumdev.co.uk/selenium");
         assertTrue("title should start with Selenium Simplified", driver.getTitle().startsWith("Selenium Simplified"));
     }
@@ -75,9 +90,5 @@ public class MyFirstTest {
 
     }
 
-    @Test
-    public void intendedToFail() {
-        assertEquals("ThisShouldFail", 0, 1);
-    }
 
 }
