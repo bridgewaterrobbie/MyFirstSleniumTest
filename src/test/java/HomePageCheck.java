@@ -31,7 +31,7 @@ public class HomePageCheck {
     }
 
     @Test
-    public static void checkSummary() {
+    public void checkSummary() {
         WebElement summary = driver.findElement(By.xpath("/html/body/div[1]/div/div[1]/div[2]/div[2]/table/tbody/tr[1]/td[2]/div/p"));
         driver.findElement(By.xpath("/html/body/div[1]/div/div[1]/div[2]/div[2]/table/tbody/tr[1]/td[2]/a")).click();
         WebElement summary2 = driver.findElement(By.xpath("/html/body/div[1]/div/div[1]/article/div[2]/div[1]/p"));

@@ -46,7 +46,7 @@ public class MyFirstTest {
 
     }
     @Test
-    public static void HomePageGoAndCheckTitle() {
+    public void HomePageGoAndCheckTitle() {
         driver.navigate().to("http://compendiumdev.co.uk/selenium");
         assertTrue("title should start with Selenium Simplified", driver.getTitle().startsWith("Selenium Simplified"));
     }
