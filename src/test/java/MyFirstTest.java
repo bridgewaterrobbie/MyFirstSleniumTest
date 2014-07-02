@@ -5,7 +5,6 @@
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.junit.runner.JUnitCore;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
@@ -39,7 +38,7 @@ public class MyFirstTest {
     }
 
     public static void main(String[] args) {
-        JUnitCore junit = new JUnitCore();
+        // JUnitCore junit = new JUnitCore();
         //intendedToFail();
         // HomePageGoAndCheckTitle();
         org.junit.runner.JUnitCore.main("MyThirdTest");
