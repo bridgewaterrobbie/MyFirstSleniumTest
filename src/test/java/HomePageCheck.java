@@ -5,7 +5,12 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.htmlunit.HtmlUnitDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import static org.junit.Assert.assertEquals;
 
@@ -16,38 +21,50 @@ public class HomePageCheck {
 
     static WebDriver driver;
 
+    //Create a generic string of the home location. This will allow me to run the same test on different sites by changing this string
+    static String homeString;
+
+
     @BeforeClass
     public static void createDriver() {
-        driver = new HtmlUnitDriver();
+        driver = new FirefoxDriver();
+        //Logger needs to be turned off if using HTMLUnitDriver, as it gives many verbose statements
+        Logger logger = Logger.getLogger("");
+        logger.setLevel(Level.OFF);
     }
 
     @Before
     public void goHome() {
-        String homeString;
-        homeString = "http://cmcrossroads.com";
-        //homeString="agileconnection.com";
-        //homeString="stickyminds.com";
-
+        //Temporary setting the homeString here
+        // homeString = "http://cmcrossroads.com";
+        // homeString="http://agileconnection.com";
+        homeString = "http://stickyminds.com";
+        //At the beginning of each test go to the home, have the same start point.
         driver.get(homeString);
     }
 
     @Test
     public void checkSummary() {
-        WebElement summary = driver.findElement(By.xpath("/html/body/div[1]/div/div[1]/div[2]/div[2]/table/tbody/tr[1]/td[2]/div/p"));
-        driver.findElement(By.xpath("/html/body/div[1]/div/div[1]/div[2]/div[2]/table/tbody/tr[1]/td[2]/a")).click();
-        WebElement test = driver.findElement(By.cssSelector("html.js body.html.not-front.not-logged-in.one-sidebar.sidebar-second.page-node.page-node-.page-node-183064.node-type-article.domain-agile.section-article.page-panels.section-article.page-panels.lightbox-processed div#page div#main div#content.column article.node-article.node div div.field.field-name-body.field-type-text-with-summary.field-label-hidden div.field-items div.field-item.even p"));
-        System.out.println(test.getText());
-        WebElement summary2 = driver.findElement(By.className("summary"));
-        String text2 = summary2.getText().substring(9);
-        assertEquals("" + summary.getText() + " vs " + text2, summary.getText(), text2);
+        //WebElement element1 = driver.findElement(By.xpath("/html/body/div[1]/div/div[1]/div[2]/div[2]/table/tbody/tr[1]/td[2]/div/p"));
+        //Use * in xpath to avoid problems of SM
+        //Find the first summay
+        WebElement element1 = driver.findElement(By.xpath("/html/body/div[1]/div/div[1]/*/div[2]/table/tbody/tr[1]/td[2]/div/p"));
+        String summary = element1.getText();
+        //click the first item
+        driver.findElement(By.xpath("/html/body/div[1]/div/div[1]/*/div[2]/table/tbody/tr[1]/td[2]/a")).click();
+
+        //Wait for things to load(long time for slow internet)
+        new WebDriverWait(driver, 100).until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.className("summary")));
+
+        // System.out.println(test.getText());
+        //Find the new summary
+        WebElement element2 = driver.findElement(By.className("summary"));
+        //Remove the string "Summary: " from the front
+        String summary2 = element2.getText().substring(9);
+        //The two summaries should be the same, if not say what each of them are
+        assertEquals("" + summary + " vs " + summary2, summary, summary2);
     }
 
-    @Test
-    public void fasterTest() {
-        driver.get("http://www.cmcrossroads.com/interview/security-testing-muggles-interview-paco-hope");
-        WebElement sum = driver.findElement(By.className("summary"));
-        System.out.println(sum.getText());
-    }
 
     @AfterClass
     public static void closeEverything() {
