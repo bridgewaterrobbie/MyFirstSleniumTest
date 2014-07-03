@@ -103,5 +103,18 @@ public class MyThirdTest {
         new Actions(driver).release().perform();
     }
 
+    @Test
+    public void a2draw() {
+        WebElement drawBox = driver.findElement(By.cssSelector("html body div canvas#canvas"));
+        WebElement box2 = driver.findElement(By.cssSelector("html body div.draganddrops div div#draggable2.draggable.ui-draggable"));
+        new Actions(driver).clickAndHold(drawBox).perform();
+
+        for (int var = 0; var < 30; var++) {
+            int x = (int) (Math.random() * 2) - 1;
+            int y = (int) (Math.random() * 2) - 1;
+            new Actions(driver).moveByOffset(x, y).perform();
+        }
+        new Actions(driver).release().perform();
+    }
 
 }
