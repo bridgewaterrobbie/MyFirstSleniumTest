@@ -31,7 +31,7 @@ public class HomePageCheck {
     public static void createDriver() {
 
         System.setProperty("webdriver.chrome.driver","chromedriver.exe");
-        System.setProperty("webdriver.ie.driver","IEDriverServer.exe");
+        System.setProperty("webdriver.ie.driver","IEDriverServer.exe ");
         driver = new FirefoxDriver();
         //Logger needs to be turned off if using HTMLUnitDriver, as it gives many verbose statements
         Logger logger = Logger.getLogger("");
