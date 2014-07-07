@@ -5,7 +5,9 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -27,6 +29,9 @@ public class HomePageCheck {
 
     @BeforeClass
     public static void createDriver() {
+
+        System.setProperty("webdriver.chrome.driver","chromedriver.exe");
+        System.setProperty("webdriver.ie.driver","IEDriverServer.exe");
         driver = new FirefoxDriver();
         //Logger needs to be turned off if using HTMLUnitDriver, as it gives many verbose statements
         Logger logger = Logger.getLogger("");
@@ -48,6 +53,7 @@ public class HomePageCheck {
         //WebElement element1 = driver.findElement(By.xpath("/html/body/div[1]/div/div[1]/div[2]/div[2]/table/tbody/tr[1]/td[2]/div/p"));
         //Use * in xpath to avoid problems of SM
         //Find the first summay
+      //  new WebDriverWait(driver, 100).until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("/html/body/div[1]/div/div[1]/*/div[2]/table/tbody/tr[1]/td[2]/div/p")));
         WebElement element1 = driver.findElement(By.xpath("/html/body/div[1]/div/div[1]/*/div[2]/table/tbody/tr[1]/td[2]/div/p"));
         String summary = element1.getText();
         //click the first item
