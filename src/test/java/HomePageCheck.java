@@ -13,7 +13,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
+import org.junit.runners.Suite;
+import org.junit.runner.RunWith;
 import static org.junit.Assert.assertEquals;
 
 /**
@@ -46,6 +47,10 @@ public class HomePageCheck {
         homeString = "http://stickyminds.com";
         //At the beginning of each test go to the home, have the same start point.
         driver.get(homeString);
+    }
+    @RunWith(Suite.class)
+    @Suite.SuiteClasses({HomePageCheck.class})
+    public class TestSuite {
     }
 
     @Test

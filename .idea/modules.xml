@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/MyFirstSleniumTest.iml" filepath="$PROJECT_DIR$/MyFirstSleniumTest.iml" />
-      <module fileurl="file://$PROJECT_DIR$/MyFirstSleniumTest.iml" filepath="$PROJECT_DIR$/MyFirstSleniumTest.iml" />
     </modules>
   </component>
 </project>
