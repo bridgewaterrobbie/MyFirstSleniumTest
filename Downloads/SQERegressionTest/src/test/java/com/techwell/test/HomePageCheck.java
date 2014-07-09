@@ -21,15 +21,22 @@ import static org.junit.Assert.assertEquals;
  */
 public class HomePageCheck {
     static WebDriver driver;
-
-    //Create a generic string of the home location. This will allow me to run the same test on different sites by changing this string
     static String homeString;
 
 
+    //Create a generic string of the home location. This will allow me to run the same test on different sites by changing this string
+
+
     public static void main(String[] args) {
-        // JUnitCore junit = new JUnitCore();
-        //intendedToFail();
-        // HomePageGoAndCheckTitle();
+        if (args.length!=0)
+        {
+            homeString=args[0];
+        }
+        else
+        {
+            homeString = "http://www.stickyminds.com/";
+
+        }
         org.junit.runner.JUnitCore.main("com.techwell.test.HomePageCheck");
 
 
@@ -45,10 +52,6 @@ public class HomePageCheck {
 
     @Before
     public void goHome() {
-        //Temporary setting the homeString here
-        // homeString = "http://cmcrossroads.com"; a
-        // homeString="http://agileconnection.com";
-        homeString = "http://stickyminds.com";
         //At the beginning of each test go to the home, have the same start point.
         driver.get(homeString);
     }
@@ -75,7 +78,11 @@ public class HomePageCheck {
         assertEquals("" + summary + " vs " + summary2, summary, summary2);
     }
 
-
+    @Test
+    public void willFail()
+    {
+        //assertEquals(0,1);
+    }
 
     @AfterClass
     public static void closeEverything() {
