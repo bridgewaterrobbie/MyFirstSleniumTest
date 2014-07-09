@@ -1,3 +1,18 @@
 Manifest-Version: 1.0
+Class-Path: selenium-ie-driver-2.40.0.jar xercesImpl-2.11.0.jar seleni
+ um-safari-driver-2.40.0.jar selenium-support-2.40.0.jar junit-4.11.ja
+ r serializer-2.7.1.jar hamcrest-core-1.3.jar jetty-http-8.1.12.v20130
+ 726.jar selenium-chrome-driver-2.40.0.jar httpclient-4.3.1.jar common
+ s-lang3-3.1.jar htmlunit-2.13.jar selenium-java-2.40.0.jar httpcore-4
+ .3.jar jetty-util-8.1.12.v20130726.jar selenium-firefox-driver-2.40.0
+ .jar json-20080701.jar cssparser-0.9.11.jar jna-3.4.0.jar httpmime-4.
+ 3.1.jar selenium-api-2.40.0.jar hamcrest-all-1.3.jar commons-codec-1.
+ 8.jar netty-3.5.2.Final.jar selenium-htmlunit-driver-2.40.0.jar commo
+ ns-collections-3.2.1.jar htmlunit-core-js-2.13.jar sac-1.3.jar xml-ap
+ is-1.4.01.jar cglib-nodep-2.1_3.jar xalan-2.7.1.jar commons-logging-1
+ .1.3.jar commons-io-2.2.jar nekohtml-1.9.19.jar commons-exec-1.1.jar 
+ webbit-0.4.14.jar platform-3.4.0.jar jetty-io-8.1.12.v20130726.jar se
+ lenium-remote-driver-2.40.0.jar guava-15.0.jar jetty-websocket-8.1.12
+ .v20130726.jar
 Main-Class: com.techwell.test.HomePageCheck
 
