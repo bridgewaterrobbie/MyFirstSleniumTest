@@ -35,16 +35,15 @@ public class HomePageCheck {
         else
         {
             homeString = "http://www.stickyminds.com/";
-
         }
         org.junit.runner.JUnitCore.main("com.techwell.test.HomePageCheck");
-
-
     }
 
     @BeforeClass
     public static void createDriver() {
         driver = new FirefoxDriver();
+        homeString = "http://www.stickyminds.com/";
+
         //Logger needs to be turned off if using HTMLUnitDriver, as it gives many verbose statements
         Logger logger = Logger.getLogger("");
         logger.setLevel(Level.OFF);
